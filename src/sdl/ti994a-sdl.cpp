@@ -215,11 +215,11 @@ void cSdlTI994A::Run( )
 					int mag = ( event.jaxis.value < 0 ) ? -event.jaxis.value : event.jaxis.value;
 					if( event.jaxis.value < -8192 )
 					{
-						state = 1;
+						state = -1;
 					}
 					if( event.jaxis.value >  8192 )
 					{
-						state = -1;
+						state = 1;
 					}
 					switch( event.jaxis.axis )
 					{
@@ -313,11 +313,11 @@ void cSdlTI994A::Run( )
 					switch( event.jbutton.button )
 					{
 						case 0 :
-							pic->SetJoystickButton( joystick, true ); // Fire - Button (A)
-							break;
-						case 1 :
 							vkey = ( VIRTUAL_KEY_E ) ( VK_1 ); // Key 1 - Button (B)
 							pic->VKeysDown( 0, vkey );
+							break;
+						case 1 :
+							pic->SetJoystickButton( joystick, true ); // Fire - Button (A)
 							break;
 						case 2 :
 							vkey = ( VIRTUAL_KEY_E ) ( VK_2 ); // Key 2 - Button (X)
@@ -327,38 +327,27 @@ void cSdlTI994A::Run( )
 							vkey = ( VIRTUAL_KEY_E ) ( VK_3 ); // Key 3 - Button (Y)
 							pic->VKeysDown( 0, vkey );
 							break;
-
 						case 4 :
 							Reset( ); // FCTN+QUIT - Button (L1)
 							break;
 						case 5 :
 							pic->VKeysDown( 0, VK_FCTN,  VK_8 ); // FCTN+REDO - Button (R1)
 							break;
-
-						case 6 :
-							vkey = ( VIRTUAL_KEY_E ) ( VK_ENTER ); // Enter - Button (Start)
-							pic->VKeysDown( 0, vkey );
-							break;
-						case 7 :
-							//goto done; // Key ESC (Quit Emulator) - Button (Select)
-							break;
-
-						case 8 :
-							pic->VKeysDown( 0, VK_FCTN,  VK_9 ); // FCTN+BACK - (L3)
-							break;
-						case 9 :
-							Reset( ); // FCTN+QUIT - Button (R3)
-							break;
-
 						case 10 :
+							pic->VKeysDown( 0, VK_FCTN,  VK_9 ); // FCTN+BACK - (Select)
+							break;
+						case 12 :
 							vkey = ( VIRTUAL_KEY_E ) ( VK_SPACE ); // Space - (L2)
 							pic->VKeysDown( 0, vkey );
 							break;
-						case 11 :
+						case 13 :
 							vkey = ( VIRTUAL_KEY_E ) ( VK_0 ); // Key 0 - (R2)
 							pic->VKeysDown( 0, vkey );
 							break;
-
+						case 15 :
+							vkey = ( VIRTUAL_KEY_E ) ( VK_ENTER ); // Enter - Button (Start)
+							pic->VKeysDown( 0, vkey );
+							break;
 					}
 
 
