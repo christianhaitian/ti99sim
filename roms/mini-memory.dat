@@ -1,0 +1,9 @@
+[Mini-Memory]
+; ROM 6
+; BANK 0 - ROM
+; FILE minimemc.bin 0x0000 0x1000
+; ROM 7
+; BANK 0 - RAMB
+; GROM 3
+; BANK 0 - ROM
+; FILE minimemg.bin 0x0000 0x2000

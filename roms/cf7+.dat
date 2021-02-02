@@ -1,0 +1,8 @@
+[CF7+]
+; CRU = 1100
+; ROM 4
+; BANK 0 - ROM
+; FILE cf7a+.bin 0x0000 0x1000
+; ROM 5
+; BANK 0 - ROM
+; FILE cf7a+.bin 0x1000 0x1000

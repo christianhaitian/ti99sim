@@ -1,0 +1,38 @@
+[P-Code Card]
+* PHP1270
+; CRU = 1F00
+*
+; ROM 4
+; BANK 0 - ROM
+; FILE pcode_r0.bin 0x0000 0x1000
+; ROM 5
+; BANK 0 - ROM
+; FILE pcode_r1.bin 0x0000 0x1000
+; ROM 5
+; BANK 1 - ROM
+; FILE pcode_r1.bin 0x1000 0x1000
+*
+; GROM 0
+; BANK 0 - ROM
+; FILE pcode_g0.bin 0x0000 0x1800
+; GROM 1
+; BANK 0 - ROM
+; FILE pcode_g0.bin 0x2000 0x1800
+; GROM 2
+; BANK 0 - ROM
+; FILE pcode_g0.bin 0x4000 0x1800
+; GROM 3
+; BANK 0 - ROM
+; FILE pcode_g0.bin 0x6000 0x1800
+; GROM 4
+; BANK 0 - ROM
+; FILE pcode_g0.bin 0x8000 0x1800
+; GROM 5
+; BANK 0 - ROM
+; FILE pcode_g0.bin 0xA000 0x1800
+; GROM 6
+; BANK 0 - ROM
+; FILE pcode_g0.bin 0xC000 0x1800
+; GROM 7
+; BANK 0 - ROM
+; FILE pcode_g0.bin 0xE000 0x1800

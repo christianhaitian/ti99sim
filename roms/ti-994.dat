@@ -1,0 +1,38 @@
+[TI-99/4 Console]
+* Console ROM - GPL Interpreter
+; ROM 0
+; BANK 0 - ROM
+; FILE u610.bin 0x0000 0x1000
+; ROM 1
+; BANK 0 - ROM
+; FILE u611.bin 0x0000 0x1000
+* TI 99/4 Console - GROM 0
+; GROM 0
+; BANK 0 - ROM
+; FILE u500.bin 0x0000 0x1800
+* TI Basic - GROM 1
+; GROM 1
+; BANK 0 - ROM
+; FILE u501.bin 0x0000 0x1800
+* TI Basic - GROM 2
+; GROM 2
+; BANK 0 - ROM
+; FILE u502.bin 0x0000 0x1800
+* 32K Memory Expansion
+; ROM 2
+; BANK 0 - RAM
+; ROM 3
+; BANK 0 - RAM
+*
+; ROM 10
+; BANK 0 - RAM
+; ROM 11
+; BANK 0 - RAM
+; ROM 12
+; BANK 0 - RAM
+; ROM 13
+; BANK 0 - RAM
+; ROM 14
+; BANK 0 - RAM
+; ROM 15
+; BANK 0 - RAM

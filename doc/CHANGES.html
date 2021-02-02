@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+
+  <head>
+    <meta name="Author" content="Marc Rousseau"/>
+    <title>TI-99/Sim - Changelog</title>
+    <meta name="KeyWords" content="TI-99/4A ti99sim emulator"/>
+    <link rel="stylesheet" href="main.css" type="text/css" title="Default"/>
+    <link rel="shortcut icon" href="/images/ti.ico" type="image/x-icon"/>
+  </head>
+
+  <body>
+
+    <div class="title">TI-99/Sim Changelog</div>
+
+    <div class="release">
+
+      <div class="version">
+        <p>Version 0.16.0 - 25-May-2020</p>
+      </div>
+
+      <div class="changes">
+        <p>2020-05-15 - Changes to better support RetroPie setup & joystick usage</p>
+        <p>2020-05-06 - Add command line option to use alternate system ROM file</p>
+        <p>2020-05-06 - Merge SDL 2.0 code</p>
+        <p>2020-03-02 - Merge new save state &amp; cartridge loading code</p>
+        <p>2018-06-18 - Merge HFE write changes</p>
+        <p>2018-06-14 - Add safety checks when parsing PC99 images</p>
+        <p>2018-05-03 - Allow unknown track encoding on HFE disks (treat unknown types as FM)</p>
+        <p>2018-04-05 - Fix CAPSLOCK handling</p>
+        <p>2018-01-15 - Update help for 'disk --output' option to include HFE as a valid format</p>
+        <p>2018-03-20 - Modify setup script to ensure a CF7+ disk image exists</p>
+        <p>2018-01-15 - Make sure all tracks have been loaded before creating new disk image</p>
+        <p>2018-01-15 - Improve handling of PC99 images</p>
+        <p>2018-01-02 - Enable write support for HxC disk images</p>
+      </div>
+
+      <div class="version">
+        <p>Version 0.15.0 - 18-Mar-2017</p>
+      </div>
+
+      <div class="changes">
+        <p>2017-03-01 - Improved handling of overrun &amp; underrun conditions in TMS5220 code</p>
+        <p>2017-02-21 - Added load-on-demand support for disk images to speed up handling of CF7+ and HFE images</p>
+        <p>2017-01-30 - Fix a bug in the PC99 serializer that would corrupt disk images when when loading them by truncating the last track</p>
+        <p>2017-01-25 - Allow user to force a particular format to be used to read a disk image in the <b>disk</b> utility</p>
+        <p>2017-01-25 - Improved robustness of several disk serializers (fixes crashes related to corrupted disk images)</p>
+        <p>2017-01-18 - Fix SDL's handling of the CAPSLOCK key in <b>ti99sim-sdl</b></p>
+        <p>2017-01-20 - Updated project files for Visual Studio 2015</p>
+        <p>2017-01-12 - Include files in subdirectories when creating a bare list of files using the <b>disk</b> utility</p>
+        <p>2017-01-11 - Correct the handling of diskette images with an AU size greater than 1</p>
+        <p>2017-01-05 - Fix talk status transition logic in the TMS5220 code that could cause some programs to get stuck waiting for the speech synthesizer</p>
+        <p>2016-11-11 - Added proper resampling filter and changed audio format to reduce noise when producing speech</p>
+        <p>2016-11-08 - Replaced reflection coefficients with the proper values for the TI-99/4A</p>
+        <p>2016-11-07 - Cleaned up the TMS5220 code and removed unused code</p>
+        <p>2016-10-19 - Added ability to create blank disk images using  the <b>disk</b> utility</p>
+        <p>2016-10-03 - Improve handling of bad disk images in the <b>disk</b> utility</p>
+      </div>
+
+      <div class="version">
+        <p>Version 0.14.0 - 25-Jun-2016</p>
+      </div>
+
+      <div class="changes">
+        <p>2016-05-16 - Added option to disable CF7+ support without having to rename/delete the .ctg file (makes getting back to the default TI disk controller easier)</p>
+        <p>2016-05-12 - Changed Makefile rules to place all generated files in the top-level bin folder rather than src/xyz/$(CFG) to make the easier to find/use when building from source</p>
+        <p>2016-05-10 - Changed the information logged when --verbose is specified to help diagnose common problems with the emulator</p>
+        <p>2016-05-09 - Added new flag to <b>convert-ctg</b> and <b>mkcart</b> to force GROM regions to 6K in size</p>
+        <p>2016-05-06 - Added new utility (<b>catalog</b>) to help find duplicate cartridges, disks, and files on disk</p>
+        <p>2016-04-20 - Update <b>dumpspch</b> &amp; <b>mkspch</b> utilities (fix crash and simplify 'spch' format)</p>
+        <p>2016-04-17 - Changed location of system ROMs and DSRs from <i>roms</i> directory to <i>console</i> directory</p>
+        <p>2016-04-16 - Added new utility (<b>mkcart</b>) to help in creating new cartridge files from a set of bin files in a folder</p>
+        <p>2016-04-16 - Added new script (<b>setup</b>) to help setup a new installation with basic ROMs</p>
+        <p>2016-04-15 - Change search logic to look in <i>&lt;cwd&gt;</i>, <i>&lt;$HOME&gt;/.ti99sim/&lt;path&gt;</i>, then <i>&lt;install-dir&gt;/&lt;path&gt;</i> for files</p>
+        <p>2016-03-10 - Added support to load 'converted' files for support in utilities (e.g. you can now do things like: <b>list</b> MYPROG.PROG or <b>dumpcpu</b> BSCSUP.DF80)</p>
+        <p>2016-03-09 - Added support for UCSD p-System expansion card</p>
+        <p>2016-02-29 - Fix mouse cursor in fullscreen mode</p>
+      </div>
+
+      <div class="version">
+        <p>Version 0.13.0 - 22-Feb-2016</p>
+      </div>
+
+      <div class="changes">
+        <p>2016-02-16 - Fixed display error when setting the background color to transparent</p>
+        <p>2016-02-15 - Fixed bitmap mode display with pattern and color table masking support</p>
+        <p>2016-02-11 - Added new options to convert 74LS379 style bank-switching files to ti99sim cartridges</p>
+        <p>2016-02-11 - Increased the number of supported ROM banks to 256</p>
+        <p>2015-05-04 - Rewrote code to read/write disk images</p>
+        <p>2015-07-09 - Added code to support proper CRC updates and checks on disk images</p>
+        <p>2015-07-21 - Added read-only support for HxC disk images</p>
+        <p>2015-08-22 - Added new -b/--bare flag to <b>disk</b> utility to allow basic scripting from the command line</p>
+        <p>2015-08-22 - Updated logic in disk routines to handle file CHAINS properly on disks with a AU larger than 1 sector</p>
+      </div>
+
+      <div class="version">
+        <p>Version 0.12.1 - 21-Apr-2015</p>
+      </div>
+
+      <div class="changes">
+        <p>2015-04-21 - Changed version number format</p>
+        <p>2015-03-11 - Fix: Add check for valid Gram Kracker pointer before dereferencing it</p>
+        <p>2015-03-11 - Fix: Removed check for file existence in <b>convert-ctg</b></p>
+      </div>
+
+      <div class="version">
+        <p>Version 0.0.12 - 22-Jul-2014</p>
+      </div>
+
+      <div class="changes">
+        <p>2013-09-11 - Added ability to copy disks to/from CF7+ a disk image using <b>disk</b></p>
+        <p>2013-08-23 - Added handling of 80 sector disk images in <b>disk</b></p>
+        <p>2013-08-21 - Better handling of disk images with bad/corrupted file descriptors in <b>disk</b></p>
+        <p>2013-08-21 - Reworked video rendering code to fix crashes when resizing the window in <b>ti99sim-sdl</b></p>
+        <p>2013-06-29 - Added CF7+ disk I/O support (no serial/parallel port support) to <b>ti99sim-sdl</b> and <b>ti99sim-console</b></p>
+        <p>2013-06-30 - Added Black &amp; White display mode to <b>ti99sim-sdl</b></p>
+        <p>2013-06-26 - Added ability to specify external files when converting listing type files (*.lst/*.dat) with <b>convert</b></p>
+        <p>2013-06-18 - Increase number of ROM banks supported from 4 to 16 (Allows 379 support with 'creative' bank ordering see tiworkshop379.dat)</p>
+        <p>2013-05-18 - Fixed code to not force speech synthesizer emulation</p>
+        <p>2013-05-10 - Rewrote opcode lookup code and clean up memory access clock penalty logic</p>
+        <p>2013-04-04 - Fixed code to explicitly use signed characters where appropriate (Fixes bug on Raspberry Pi)</p>
+        <p>2013-03-03 - Added more information to verbose display of <b>disk</b></p>
+        <p>2013-03-02 - Added support for MERGE format and large Extended BASIC programs to <b>list</b></p>
+        <p>2013-02-24 - Fixed support for 15-bit and 25-bit graphics modes</p>
+        <p>2013-01-15 - Handle native files in filesystem code (allows <b>list</b> and <b>dumpcpu</b> to work with files exported with <b>disk</b> using --convert)</p>
+        <p>2012-07-12 - Handle uncompressed archive files</p>
+      </div>
+
+    </div>
+
+    <div class="release">
+
+      <div class="version">
+        <p>Version 0.0.11 - 11-Jul-2012</p>
+      </div>
+
+      <div class="changes">
+        <p>2012-07-05 - Fixed crashes in <b>disk</b>, <b>list</b>, and <b>convert-ctg</b></p>
+        <p>2012-07-02 - Fixed logic for CapsLock</p>
+        <p>2011-08-10 - Added support for directories to <b>disk</b> utility</p>
+        <p>2011-07-31 - Fixed a crash in the <b>list</b> utility</p>
+        <p>2011-07-30 - Added support for CF7+ disk images (supported by both <b>disk</b> and <b>list</b>)</p>
+        <p>2011-07-25 - Improved Mac OS X build process</p>
+        <p>2010-03-05 - Added support for using Windows .PIF files when creating cartridges in <b>convert-ctg</b></p>
+        <p>2010-02-24 - Fixed a bug in the TB opcode handling and the polarity of some signals in the TMS9901 emulation</p>
+        <p>2010-02-18 - Added support for REF/DEF table while loading most TI-Tagged files in <b>dumpcpu</b></p>
+        <p>2010-02-17 - Added support for most existing tags in TI-Tagged files in <b>dumpcpu</b></p>
+        <p>2010-02-17 - Fixed logic when reading variable size records (fixes bug in <b>disk</b> when exporting and converting variable sized files)</p>
+        <p>2009-11-30 - Fixed timing issues when loading saved images and resetting the CPU</p>
+        <p>2009-09-18 - Added 4K addressing mode support to TMS9918a emulation</p>
+        <p>2009-08-10 - Added checks for errors reported by file I/O functions</p>
+        <p>2009-04-23 - Fixed a crash when an invalid disk device cartridge is loaded</p>
+        <p>2009-03-18 - Fixed TimerHook in SDL build to handle fast systems properly &amp; track VDP refreshes more accurately</p>
+        <p>2008-10-13 - Updated Linux and Mac Makefile system</p>
+        <p>2004-08-10 - Added timestamp support to basic file system code</p>
+        <p>2004-08-08 - Added cross-linked file check option (--check) to <b>disk</b> utility</p>
+        <p>2004-07-29 - Added --verbose output to <b>list</b> utility</p>
+        <p>2004-07-28 - Updated <b>list</b> utility to more closely match the output from TI BASIC</p>
+        <p>2004-06-22 - Minor clean up - eliminated several lint/compiler warnings</p>
+        <p>2004-01-05 - Updated code to compile &amp; run properly on 64-bit platforms</p>
+        <p>2003-09-25 - Updated cartridge format to use LZW compression</p>
+        <p>2003-09-24 - Added compression ratio information to verbose directory listing for archive files</p>
+        <p>2003-09-24 - Modified LZW encoder &amp; decoder to handle variable max bit-length at run-time</p>
+        <p>2003-09-23 - Fixed bug in cDecodeLZW that prevented some valid files from decoding the last symbol properly</p>
+        <p>2003-09-23 - Fixed cDecodeLZW's handling of corrupt data</p>
+        <p>2003-09-22 - Added cEncodeLZW encoder class</p>
+      </div>
+
+    </div>
+
+    <div class="release">
+
+      <div class="version">
+        <p>Version 0.0.10</p>
+      </div>
+
+      <div class="changes">
+        <p>2003-09-15 - Added cArchiveFileSystem class to handle .ark files as disks</p>
+        <p>2003-09-15 - Updated list of files to strip/install under Win32</p>
+        <p>2003-09-14 - Wrote LZW routines to decode .ark files</p>
+        <p>2003-09-10 - Added support for REF records in TI-Tagged files to <b>dumpcpu</b></p>
+        <p>2003-09-01 - Added ability to add files to disk images in <b>disk</b></p>
+      </div>
+
+    </div>
+
+    <div class="release">
+
+      <div class="version">
+        <p>Version 0.0.9</p>
+      </div>
+
+      <div class="changes">
+        <p>2003-08-29 - Fix <b>convert-ctg</b>'s handling of Gram Kracker files (10 character filename limit &amp; PC99 formats)</p>
+        <p>2003-08-03 - Add 'Scale3x' code and optimized 'Scale2x' routines</p>
+        <p>2003-05-01 - Improved quality of speech synthesis when using <q>External Data</q> mode</p>
+        <p>2003-01-16 - Fixed bug in <b>list</b> utility (failing to NULL terminate the string)</p>
+        <p>2002-12-05 - Added 'volume' and 'scale2x' command-line option</p>
+        <p>2002-12-02 - Added option to select an alternate color palette</p>
+        <p>2002-12-01 - Fixed window down-scaling</p>
+        <p>2002-12-01 - Implemented Scale2x code for double-size windows</p>
+        <p>2002-11-21 - Changed joystick code to handle X/Y mappings better</p>
+        <p>2002-11-22 - Changed sound code to use unsigned samples</p>
+        <p>2002-11-24 - Added more interpolation code to speech synthesis code to improve quality (slightly)</p>
+        <p>2002-11-13 - Fixed command line parsing to notify user of invalid arguments</p>
+        <p>2002-11-13 - Added diagnostic messages to ParseJoystick in the case of bad input</p>
+        <p>2002-09-17 - Added window resizing support to <b>ti99sim-sdl</b></p>
+        <p>2002-09-17 - Added new fullscreen option to select a specific resolution</p>
+        <p>2002-09-17 - Added better auto-selection of screen resolution in fullscreen mode</p>
+        <p>2002-09-17 - Changed cBitmap::Copy to handle arbitrary integer upscaling</p>
+        <p>2002-09-15 - Modified startup code for <b>ti99sim-sdl</b> to handle platforms that don't support joysticks properly</p>
+        <p>2002-09-15 - Fixed code in decode.cpp to byte-swap structure members on big endian processors</p>
+        <p>2002-09-15 - Reworked Makefile.linux to simplify adding new utilities, added uninstall target, and added soft links in /usr/local/bin</p>
+        <p>2002-09-14 - Ported code to run on PowerPC platform (MacOSX)</p>
+        <p>2002-09-14 - Removed bitfields from code &amp; replaced with masks and shifts</p>
+        <p>2002-09-14 - Fixed display problem in <b>ti99sim-console</b></p>
+      </div>
+
+    </div>
+
+    <div class="release">
+
+      <div class="version">
+        <p>Version 0.0.8 - 20-Aug-2002</p>
+      </div>
+
+      <div class="changes">
+        <p>2002-08-03 - Fixed bug in <b>mkspch</b> that created incorrect binary tree</p>
+        <p>2002-08-03 - Added <q>parsed</q> data mode to <b>dumpspch</b> and <b>mkspch</b></p>
+        <p>2002-07-31 - Created <b>dumpspch</b> utility</p>
+        <p>2002-07-31 - Fixed several memory leaks/invalid memory accesses in utilities</p>
+        <p>2002-07-21 - Fixed frame skip logic in <b>ti99sim-sdl</b></p>
+        <p>2002-06-14 - Added command line syntax for all programs to README.html</p>
+        <p>2002-06-10 - Updated README.html</p>
+        <p>2002-06-01 - Updated <b>ti99sim-console</b>'s keyboard handling code</p>
+        <p>2002-05-27 - Fixed <b>decode</b> to handle noisy preamble data without crashing</p>
+        <p>2002-02-11 - Improved WAV file support in <b>decode</b></p>
+        <p>2002-02-01 - Improved <b>decode</b>'s ability to recover data from WAV files</p>
+        <p>2002-01-16 - Changed disk I/O routines to properly handle 80 track disk images</p>
+        <p>2002-01-13 - Added user-selectable audio sampling frequency</p>
+        <p>2002-01-12 - Improved choppy audio under Windows NT (increased default buffer size)</p>
+        <p>2002-01-12 - Fixed GROM address auto-increment to stay within the current GROM</p>
+        <p>2002-01-11 - Added AddFile and DeleteFile routines to disk utility</p>
+        <p>2002-01-05 - Fixed clock cycle counting for memory writes (simulate the read that the TMS9900 does before writing)</p>
+        <p>2001-12-31 - Fixed bug in RemoveCartridge that could cause a core dump/GP Fault</p>
+        <p>2001-12-30 - Replaced keyboard routines with code from Felix Nawothnig (better international keyboard support)</p>
+        <p>2001-12-20 - Added timer mode support to TMS9901 code</p>
+        <p>2001-12-18 - Added TMS9901 class to emulate the programable interupt controller</p>
+        <p>2001-12-16 - Fixed problem with Mini-Memory's battery backed RAM</p>
+      </div>
+
+    </div>
+
+    <div class="release">
+
+      <div class="version">
+        <p>Version 0.0.7 - 06-Dec-2001</p>
+      </div>
+
+      <div class="changes">
+        <p>2001-12-06 - Added multicolor mode to support the TMS9918A emulation</p>
+        <p>2001-11-29 - Fixed UpdateSprites to only display first 4 sprites on a line</p>
+        <p>2001-11-29 - Added 5th sprite detection &amp; coincidence checking logic</p>
+        <p>2001-11-26 - Fixed bug related to sprite display (was incorrectly wrapping)</p>
+        <p>2001-08-19 - Fixed bug in <b>convert-ctg</b> when creating a DSR cartdidge</p>
+        <p>2001-08-13 - Improved console based screen display when switching modes</p>
+        <p>2001-08-06 - Added list utility to display TI BASIC/Extended BASIC programs</p>
+        <p>2001-08-01 - Fixed 9901 interrupt signal logic (MG Explorer now runs)</p>
+        <p>2001-08-01 - Changed memory access routines to properly emulate scratch pad RAM aliasing</p>
+        <p>2001-07-31 - Updated LoadImage code and added optional disassembly of code in scratchpad RAM in <b>dumpcpu</b></p>
+        <p>2001-07-30 - Reorganized SaveImage/LoadImage routines to be more robust</p>
+      </div>
+
+    </div>
+
+    <div class="release">
+
+      <div class="version">
+        <p>Version 0.0.6 - 27-Jul-2001</p>
+      </div>
+
+      <div class="changes">
+        <p>2001-07-25 - Added code to patch the TI disk ROM at run-time to fix a problem with formatting</p>
+        <p>2001-07-22 - Fixed a bug in the video code that could cause memory corruption</p>
+        <p>2001-07-19 - Added <q>image file</q> and FIAD support to <b>dumpcpu</b></p>
+        <p>2001-07-18 - Updated disk device to use new disk I/O routines</p>
+        <p>2001-07-16 - Added command line option handling routines</p>
+        <p>2001-07-15 - Corrected DSxD logic for locating sectors on double-sided disks</p>
+        <p>2001-07-15 - Added write support for all disk formats</p>
+        <p>2001-07-14 - Re-wrote disk I/O routines - Added V9T9 and PC99 format read support</p>
+        <p>2001-07-06 - Fixed error messages so that they display properly under Win32 version of SDL</p>
+        <p>2001-07-06 - Added new command line arguments and help screen to <b>ti99sim-sdl</b></p>
+        <p>2001-07-06 - Added NTSC/PAL option for display</p>
+        <p>2001-07-03 - Modified makefiles to work with mingw under Windows</p>
+        <p>2001-07-02 - Added frame skip feature to video display code</p>
+        <p>2001-06-24 - Added hack to work around bug in MSVC++ in opcodes</p>
+      </div>
+
+    </div>
+
+    <div class="release">
+
+      <div class="version">
+        <p>Version 0.0.5 - 16-Jun-2001</p>
+      </div>
+
+      <div class="changes">
+        <p>2001-06-06 - Removed byte-swapping on little-endian machines (invalidates the .asm routines)</p>
+        <p>2001-06-02 - Fixed read &amp; write 16-bit trap for little-endian machines</p>
+        <p>2001-06-02 - Removed sprite vertical wrap-around</p>
+        <p>2001-05-14 - Added calls to Sleep in speech synthesizer to allow the TMS5220 code to stall the CPU execution path</p>
+        <p>2001-05-11 - Fixed emulated joystick code</p>
+        <p>2001-05-10 - Switched to SDL v1.2.0</p>
+        <p>2001-05-10 - Added fullscreen support</p>
+        <p>2001-05-10 - Added real joystick support</p>
+        <p>2001-05-08 - Fixed code that depended on the compiler's order of evaluation of an expression involving multiple function calls</p>
+        <p>2001-05-07 - Modified console GetKey routines to match behavior accross platforms</p>
+        <p>2001-05-07 - Fixed code that was LITTLE_ENDIAN dependent (<b>ti99sim-console</b> now runs under SunOS on a Sparc)</p>
+        <p>2001-05-07 - Fixed a problem with the shift key state in <b>ti99sim-sdl</b></p>
+        <p>2001-05-06 - Added <b>mkspch</b> utility to create spchrom.bin files</p>
+        <p>2001-05-05 - Reworked Makefiles and moved defines to rules.mak</p>
+        <p>2000-11-27 - Added basic TMS5220 support</p>
+      </div>
+
+    </div>
+
+    <div class="release">
+
+      <div class="version">
+        <p>Version 0.0.4 - 24-Nov-2000</p>
+      </div>
+
+      <div class="changes">
+        <p>2000-11-12 - Replaced ti-roms.dat with 3 files to show different available options</p>
+        <p>2000-11-12 - Changed name of <b>convert</b> to <b>convert-ctg</b> to avoid conflicts with ImageMagick</p>
+        <p>2000-11-10 - Improved <b>convert</b>'s choice of output filenames</p>
+        <p>2000-11-10 - Updated <b>convert</b> to work with new cartridge format</p>
+        <p>2000-11-09 - Changed internal structure of cartridges to better support Gram Kracker emulation</p>
+        <p>2000-10-31 - Converted README to html</p>
+        <p>2000-09-28 - Added -d option to <b>convert</b></p>
+        <p>2000-09-24 - Added support for battery-backed RAM cartridges</p>
+        <p>2000-09-20 - Added *nix directory structure support</p>
+        <p>2000-09-20 - Added save/load memory image support</p>
+        <p>2000-09-01 - Reworked sound code to reduce CPU overhead</p>
+        <p>2000-08-10 - Added utility to read .wav files of recorded audio tapes</p>
+        <p>2000-08-06 - Corrected emulated clock speed</p>
+        <p>2000-08-05 - Re-ordered OpCode lookup table to reduce average lookup times</p>
+        <p>2000-08-01 - Improved emulation speed accuracy by tracking memory access clock cycles</p>
+        <p>2000-08-01 - Replaced x86 assembly code with C code</p>
+        <p>2000-07-28 - Changed Makefiles to use native CPU instead of 'i686'</p>
+      </div>
+
+    </div>
+
+    <div class="release">
+
+      <div class="version">
+        <p>Version 0.0.3 - 28-Jun-2000</p>
+      </div>
+
+      <div class="changes">
+        <p>2000-06-27 - Fixed bug in CheckGrom in <b>convert</b></p>
+        <p>2000-06-27 - Added command line options for silence and 4x window size</p>
+        <p>2000-06-26 - Changed <b>convert</b> to check lower and upper case versions of alternate filenames</p>
+        <p>2000-06-25 - Changed sound code to use floating point to track periods</p>
+        <p>2000-06-23 - Added noise support</p>
+      </div>
+
+    </div>
+
+    <div class="release">
+
+      <div class="version">
+        <p>Version 0.0.2 - 21-Jun-2000</p>
+      </div>
+
+      <div class="changes">
+        <p>2000-06-21 - Cleaned up address aliasing for VDP memory mapped accesses</p>
+        <p>2000-06-20 - Added 1:2 upscale to bitmap Copy method</p>
+        <p>2000-06-20 - Added basic sound support</p>
+        <p>2000-06-19 - Added window manager caption</p>
+      </div>
+
+    </div>
+
+    <div class="release">
+
+      <div class="version">
+        <p>Version 0.0.1 - 18-Jun-2000</p>
+      </div>
+
+      <div class="changes">
+        <p>2000-06-18 - First release</p>
+      </div>
+
+    </div>
+
+    <hr/>
+
+    <div style="text-align: center;">
+      Homepage: <a href="http://www.mrousseau.org/programs/ti99sim/">http://www.mrousseau.org/programs/ti99sim/</a><br/>
+      Contact: <a href="mailto:ti99sim at mrousseau.org?subject=ti99sim">ti99sim<span>@</span>mrousseau<span class="hide">.nonsense</span>.org</a>
+    </div>
+
+  </body>
+
+</html>

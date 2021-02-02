@@ -1,0 +1,74 @@
+#!/bin/sh
+
+root=`dirname $0`
+root=`dirname $root`
+root=`readlink -f $root`
+
+tmpdir=$(mktemp -d)
+cd $tmpdir
+
+wget http://ftp.whtech.com/System%20ROMs/MAME/pre_0.174/ti99_complete.zip
+wget http://ftp.whtech.com/System%20ROMs/MAME/ti99_gkracker.zip
+wget http://ftp.whtech.com/emulators/mess/mess_modules.zip
+
+unzip -oq ti99_complete ti99_4a.zip
+unzip -oq ti99_complete ti99_4qi.zip
+unzip -oq ti99_complete ti99_fdc.zip
+unzip -oq ti99_complete ti99_pcode.zip
+unzip -oq ti99_complete ti99_speech.zip
+
+cp $root/roms/cf7a+.bin .
+
+unzip -oq ti99_4a.zip '*.bin'
+unzip -oq ti99_4qi.zip '*.bin'
+unzip -oq ti99_fdc.zip '*.bin'
+unzip -oq ti99_pcode.zip '*.bin'
+unzip -oq ti99_speech.zip '*.bin'
+unzip -oq ti99_gkracker.zip '*.bin'
+
+$root/bin/convert-ctg $root/roms/cf7+.dat
+$root/bin/convert-ctg $root/roms/gram-kracker.dat
+$root/bin/convert-ctg $root/roms/ti-994a.dat
+$root/bin/convert-ctg $root/roms/ti-994a-qi.dat
+$root/bin/convert-ctg $root/roms/ti-disk.dat
+$root/bin/convert-ctg $root/roms/ti-pcard.dat
+
+mkdir -p ~/.ti99sim
+
+if [ -d /home/pi/RetroPie ]; then
+	if [ ! -d ~/.ti99sim/console ]; then
+		mkdir -p /home/pi/RetroPie/BIOS/ti99
+		ln -s /home/pi/RetroPie/BIOS/ti99 ~/.ti99sim/console
+	fi
+	if [ ! -d ~/.ti99sim/cartridges ]; then
+		mkdir -p /home/pi/RetroPie/roms/ti99
+		ln -s /home/pi/RetroPie/roms/ti99 ~/.ti99sim/cartridges
+	fi
+fi
+
+mkdir -p ~/.ti99sim/console
+mkdir -p ~/.ti99sim/cartridges
+mkdir -p ~/.ti99sim/disks
+
+if [ ! -f ~/.ti99sim/disks/image.cf7 ]; then
+	tmpdisk=$(mktemp -uq)
+	$root/bin/disk --create=sssd $tmpdisk > /dev/null
+	$root/bin/disk --output=cf7+ --filename=image.cf7#32 $tmpdisk > /dev/null
+	rm $tmpdisk
+	mv image.cf7 ~/.ti99sim/disks
+fi
+
+mv -n *ctg ~/.ti99sim/console
+mv -n spchrom.bin ~/.ti99sim/console
+
+unzip -oq mess_modules -d roms
+mv roms/minimem*.bin .
+
+$root/bin/convert-ctg $root/roms/mini-memory.dat
+$root/bin/mkcart roms
+
+mv -n *ctg ~/.ti99sim/cartridges
+
+cd -
+
+rm -Rf $tmpdir

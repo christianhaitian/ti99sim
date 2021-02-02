@@ -1,0 +1,9 @@
+[Disk Memory System]
+* PHP1240
+; CRU = 1100
+; ROM 4
+; BANK 0 - ROM
+; FILE disk.bin 0x0000 0x1000
+; ROM 5
+; BANK 0 - ROM
+; FILE disk.bin 0x1000 0x1000

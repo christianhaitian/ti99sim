@@ -1,0 +1,25 @@
+[GRAM Kracker]
+; ROM 6
+; BANK 0 - RAMB
+; BANK 1 - RAMB
+; ROM 7
+; BANK 0 - RAMB
+; BANK 1 - RAMB
+; GROM 0
+; BANK 0 - RAMB
+; GROM 1
+; BANK 0 - RAMB
+; BANK 1 - ROM
+; FILE gkracker.bin 0x0000 0x2000
+; GROM 2
+; BANK 0 - RAMB
+; GROM 3
+; BANK 0 - RAMB
+; GROM 4
+; BANK 0 - RAMB
+; GROM 5
+; BANK 0 - RAMB
+; GROM 6
+; BANK 0 - RAMB
+; GROM 7
+; BANK 0 - RAMB

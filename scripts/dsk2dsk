@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Script to copy files from one TI-99/4A disk image to another.
+#
+# Usage:
+#
+#  ./dsk2dsk <src-disk1> <dst-disk>
+#
+
+srcdisk=$1
+dstdisk=$2
+
+if [ ! -f ${srcdisk} ]; then
+	echo "Invalid source disk"
+	exit
+fi
+
+if [ ! -f ${dstdisk} ]; then
+	echo "Invalid destination disk"
+	exit
+fi
+
+echo "Copying files from ${srcdisk}:"
+
+disk --sha1 ${srcdisk}
+
+echo "To ${dstdisk}:"
+
+disk --sha1 ${dstdisk}
+
+for f in `disk -b ${srcdisk}`; do
+	echo "Adding ${f} to ${dstdisk}"
+	disk ${dstdisk} -a=${srcdisk}:${f} > /dev/null
+done
+
+echo "\nResults:"
+
+disk --sha1 ${dstdisk}

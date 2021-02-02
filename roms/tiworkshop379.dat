@@ -1,0 +1,49 @@
+[TI-Workshop]
+; ROM 6
+; BANK 7 - ROM
+; FILE tiworkshop379.bin 0x0000 0x1000
+; ROM 7
+; BANK 7 - ROM
+; FILE tiworkshop379.bin 0x1000 0x1000
+; ROM 6
+; BANK 6 - ROM
+; FILE tiworkshop379.bin 0x2000 0x1000
+; ROM 7
+; BANK 6 - ROM
+; FILE tiworkshop379.bin 0x3000 0x1000
+; ROM 6
+; BANK 5 - ROM
+; FILE tiworkshop379.bin 0x4000 0x1000
+; ROM 7
+; BANK 5 - ROM
+; FILE tiworkshop379.bin 0x5000 0x1000
+; ROM 6
+; BANK 4 - ROM
+; FILE tiworkshop379.bin 0x6000 0x1000
+; ROM 7
+; BANK 4 - ROM
+; FILE tiworkshop379.bin 0x7000 0x1000
+; ROM 6
+; BANK 3 - ROM
+; FILE tiworkshop379.bin 0x8000 0x1000
+; ROM 7
+; BANK 3 - ROM
+; FILE tiworkshop379.bin 0x9000 0x1000
+; ROM 6
+; BANK 2 - ROM
+; FILE tiworkshop379.bin 0xA000 0x1000
+; ROM 7
+; BANK 2 - ROM
+; FILE tiworkshop379.bin 0xB000 0x1000
+; ROM 6
+; BANK 1 - ROM
+; FILE tiworkshop379.bin 0xC000 0x1000
+; ROM 7
+; BANK 1 - ROM
+; FILE tiworkshop379.bin 0xD000 0x1000
+; ROM 6
+; BANK 0 - ROM
+; FILE tiworkshop379.bin 0xE000 0x1000
+; ROM 7
+; BANK 0 - ROM
+; FILE tiworkshop379.bin 0xF000 0x1000

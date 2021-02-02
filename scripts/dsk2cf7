@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Script to create a CF7+ disk image from multiple individual TI-99/4A disk images.
+#
+# Usage:
+#
+#  ./dsk2cf7 <cf7-diskname> [ <disk1> ... ]
+#
+
+cf7file=$1
+
+if [ -f "${cf7file}" ]; then
+	echo "${cf7file} already exists"
+	exit
+fi
+
+echo "Creating new CF7+ disk image ${cf7file}\n"
+
+shift
+
+volume=1
+
+for file in $@; do
+	if [ -f "${file}" ]; then
+		echo "${cf7file}#${volume} created from ${file}"
+		disk --output=cf7+ --filename=${cf7file}#${volume} ${file} > /dev/null
+		volume=`expr ${volume} + 1`
+	fi
+done
+
+echo "\n${volume} disks added"
