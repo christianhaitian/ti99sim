@@ -215,11 +215,11 @@ void cSdlTI994A::Run( )
 					int mag = ( event.jaxis.value < 0 ) ? -event.jaxis.value : event.jaxis.value;
 					if( event.jaxis.value < -8192 )
 					{
-						state = -1;
+						state = 1;
 					}
 					if( event.jaxis.value >  8192 )
 					{
-						state = 1;
+						state = -1;
 					}
 					switch( event.jaxis.axis )
 					{
@@ -240,18 +240,144 @@ void cSdlTI994A::Run( )
 					}
 				}
 				break;
+
+
+			//
+			// 13/06/2020 - Added Hat support, in addition to Axis (Alessandro Benedettini).
+                        //              Hat is the default setting in some joypads (e.g. Retroflag's GPi Case) and it's better for some games (e.g. Burghertime).
+			//
+			case SDL_JOYHATMOTION :
+				joystick = FindJoystick( event.jhat.which );
+				if( joystick != -1 )
+				{
+					int state = 0;
+					switch( event.jhat.value )
+					{
+						case SDL_HAT_LEFTUP :
+							pic->SetJoystickY( joystick,  1 );
+						case SDL_HAT_LEFT :
+							pic->SetJoystickX( joystick, -1 );
+							break;
+
+						case SDL_HAT_RIGHTDOWN :
+							pic->SetJoystickY( joystick, -1 );
+						case SDL_HAT_RIGHT :
+							pic->SetJoystickX( joystick, 1 );
+							break;
+
+						case SDL_HAT_LEFTDOWN :
+							pic->SetJoystickX( joystick, -1 );
+						case SDL_HAT_DOWN :
+							pic->SetJoystickY( joystick, -1 );
+							break;
+
+						case SDL_HAT_RIGHTUP :
+							pic->SetJoystickX( joystick,  1 );
+						case SDL_HAT_UP :
+							pic->SetJoystickY( joystick,  1 );
+							break;
+
+						case SDL_HAT_CENTERED :
+							pic->SetJoystickX( joystick,  state );
+							pic->SetJoystickY( joystick,  state );
+							break;
+
+					}
+				}
+				break;
+
+
+			//
+			// 13/06/2020 - Changed behaviour/mappings of buttons allowing most of the games to be run without having to use the keyboard anymore (Alessandro Benedettini).
+                        //
+                        //              Most of the joypads have at least 8 buttons, so a minimal set of needed keys/combination of keys needs to be identified to run confortably most of the games.
+                        //              The ideal number of keys to have would be: 0 to 9, Enter, Space, +, FCTN+QUIT, FCTN+REDO, FCTN+BACK, FCTN+AID. Total is 17, plus the "Fire" button and "Esc" to
+                        //              exit from the emulator, for a total of 19 keys. This number must be reduced, since normally there are less button available. For example, the Xbox One controller
+                        //              has 10 buttons + 2 triggers, the 8bitdo SF30 has 12 buttons + 2 triggers.
+			//
+			//              For a 8 buttons layout, the selected keys are: Fire, 1, 2, 3, ESC, FCTN+QUIT, FCTN+REDO and Enter. With 2 additional buttons it's possible to have + and FCTN+REDO.
+			//              Finally, with a 12 buttons layout, it's possible to have also Space and 0.
+			//
+			//              The mapping of the keys was intended for the Retroflag's GPi Case, that has these pad indexes: A=0, B=1, X=2, Y=3, LB=4, RB=5, Select=6, Start=7. This should
+			//              match also with most of the SNES like pads. In the Xbox One controller A and B, X and Y are inverted.
+			//
+			//              Note that the majority of games are using joystick port 1. Frogger and other games that instead are using joystick port 2 are not working with this code.
+			//
+			//
 			case SDL_JOYBUTTONDOWN :
 				joystick = FindJoystick( event.jbutton.which );
 				if( joystick != -1 )
 				{
-					pic->SetJoystickButton( joystick, true );
-					if( event.jbutton.button > 0 )
+
+					auto vkey = ( VIRTUAL_KEY_E ) ( VK_NONE );
+					switch( event.jbutton.button )
 					{
-						auto vkey = ( VIRTUAL_KEY_E ) ( VK_0 + std::clamp(( int ) event.jbutton.button, 1, 9 ));
-						pic->VKeysDown( 0, vkey );
+						case 0 :
+							pic->SetJoystickButton( joystick, true ); // Fire - Button (A)
+							break;
+						case 1 :
+							vkey = ( VIRTUAL_KEY_E ) ( VK_1 ); // Key 1 - Button (B)
+							pic->VKeysDown( 0, vkey );
+							break;
+						case 2 :
+							vkey = ( VIRTUAL_KEY_E ) ( VK_2 ); // Key 2 - Button (X)
+							pic->VKeysDown( 0, vkey );
+							break;
+						case 3 :
+							vkey = ( VIRTUAL_KEY_E ) ( VK_3 ); // Key 3 - Button (Y)
+							pic->VKeysDown( 0, vkey );
+							break;
+
+						case 4 :
+							Reset( ); // FCTN+QUIT - Button (L1)
+							break;
+						case 5 :
+							pic->VKeysDown( 0, VK_FCTN,  VK_8 ); // FCTN+REDO - Button (R1)
+							break;
+
+						case 6 :
+							vkey = ( VIRTUAL_KEY_E ) ( VK_ENTER ); // Enter - Button (Start)
+							pic->VKeysDown( 0, vkey );
+							break;
+						case 7 :
+							//goto done; // Key ESC (Quit Emulator) - Button (Select)
+							break;
+
+						case 8 :
+							pic->VKeysDown( 0, VK_FCTN,  VK_9 ); // FCTN+BACK - (L3)
+							break;
+						case 9 :
+							Reset( ); // FCTN+QUIT - Button (R3)
+							break;
+
+						case 10 :
+							vkey = ( VIRTUAL_KEY_E ) ( VK_SPACE ); // Space - (L2)
+							pic->VKeysDown( 0, vkey );
+							break;
+						case 11 :
+							vkey = ( VIRTUAL_KEY_E ) ( VK_0 ); // Key 0 - (R2)
+							pic->VKeysDown( 0, vkey );
+							break;
+
 					}
+
+
+					//
+					// Original code from V0.16.0. It correctly allows the selection of entries in the initial menu, however you cannot use the 1, 2 e 3 keys in Parsec.
+					//                             All buttons are acting like Fire button.
+					//
+					//
+					//pic->SetJoystickButton( joystick, true );
+					//if( event.jbutton.button > 0 )
+					//{
+					//	auto vkey = ( VIRTUAL_KEY_E ) ( VK_0 + std::clamp(( int ) event.jbutton.button, 1, 9 ));
+					//	pic->VKeysDown( 0, vkey );
+					//}
+
 				}
 				break;
+
+
 			case SDL_JOYBUTTONUP :
 				joystick = FindJoystick( event.jbutton.which );
 				if( joystick != -1 )
