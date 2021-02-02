@@ -1,4 +1,4 @@
-# Build for rk2020/OGA 1.0 using arm64 Ubuntu environment:
+# Build for rgb10/OGA 1.1 using arm64 Ubuntu environment:
 
 Prerequisites:
  - Either: g++ v4.8 or newer, or clang++ v3.4 or newer
