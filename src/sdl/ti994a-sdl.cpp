@@ -372,7 +372,7 @@ void cSdlTI994A::Run( )
 				if( joystick != -1 )
 				{
 					pic->SetJoystickButton( joystick, false );
-					if( event.jbutton.button > 0 )
+					if( event.jbutton.button >= 0 )
 					{
 						pic->VKeyUp( 0 );
 					}
