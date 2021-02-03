@@ -340,9 +340,9 @@ void cSdlTI994A::Run( )
 							pic->VKeysDown( 0, vkey );
 							break;
 						case 7 :
-							//goto done; // Key ESC (Quit Emulator) - Button (Select)
+							vkey = ( VIRTUAL_KEY_E ) ( VK_P ); // Key P - Button (Select)
+							pic->VKeysDown( 0, vkey );
 							break;
-
 						case 8 :
 							pic->VKeysDown( 0, VK_FCTN,  VK_9 ); // FCTN+BACK - (L3)
 							break;
