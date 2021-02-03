@@ -246,8 +246,8 @@ void cSdlTI994A::Run( )
 			// 13/06/2020 - Added Hat support, in addition to Axis (Alessandro Benedettini).
                         //              Hat is the default setting in some joypads (e.g. Retroflag's GPi Case) and it's better for some games (e.g. Burghertime).
 			//
-			case SDL_JOYHATMOTION :
-				joystick = FindJoystick( event.jhat.which );
+			/*case SDL_JOYBUTTONDOWN :
+				joystick = FindJoystick( event.jbutton.which );
 				if( joystick != -1 )
 				{
 					int state = 0;
@@ -255,25 +255,25 @@ void cSdlTI994A::Run( )
 					{
 						case SDL_HAT_LEFTUP :
 							pic->SetJoystickY( joystick,  1 );
-						case SDL_HAT_LEFT :
+						case 10 :
 							pic->SetJoystickX( joystick, -1 );
 							break;
 
 						case SDL_HAT_RIGHTDOWN :
 							pic->SetJoystickY( joystick, -1 );
-						case SDL_HAT_RIGHT :
+						case 11 :
 							pic->SetJoystickX( joystick, 1 );
 							break;
 
 						case SDL_HAT_LEFTDOWN :
 							pic->SetJoystickX( joystick, -1 );
-						case SDL_HAT_DOWN :
+						case 9 :
 							pic->SetJoystickY( joystick, -1 );
 							break;
 
 						case SDL_HAT_RIGHTUP :
 							pic->SetJoystickX( joystick,  1 );
-						case SDL_HAT_UP :
+						case 8 :
 							pic->SetJoystickY( joystick,  1 );
 							break;
 
@@ -284,7 +284,7 @@ void cSdlTI994A::Run( )
 
 					}
 				}
-				break;
+				break;*/
 
 
 			//
@@ -333,18 +333,30 @@ void cSdlTI994A::Run( )
 						case 5 :
 							pic->VKeysDown( 0, VK_FCTN,  VK_8 ); // FCTN+REDO - Button (R1)
 							break;
+						/* case 8 :
+							pic->SetJoystickY( joystick, 1 ); // DPAD Up
+							break;
+						case 9 :
+							pic->SetJoystickY( joystick, -1 ); // DPAD Down
+							break;
 						case 10 :
+							pic->SetJoystickX( joystick, -1 ); // DPAD Left
+							break;
+						case 11 :
+							pic->SetJoystickX( joystick, 1 ); // DPAD Right
+							break; */
+						case 12 :
 							pic->VKeysDown( 0, VK_FCTN,  VK_9 ); // FCTN+BACK - (Select)
 							break;
-						case 12 :
+						case 14 :
 							vkey = ( VIRTUAL_KEY_E ) ( VK_SPACE ); // Space - (L2)
 							pic->VKeysDown( 0, vkey );
 							break;
-						case 13 :
+						case 15 :
 							vkey = ( VIRTUAL_KEY_E ) ( VK_0 ); // Key 0 - (R2)
 							pic->VKeysDown( 0, vkey );
 							break;
-						case 15 :
+						case 17 :
 							vkey = ( VIRTUAL_KEY_E ) ( VK_ENTER ); // Enter - Button (Start)
 							pic->VKeysDown( 0, vkey );
 							break;
@@ -372,7 +384,7 @@ void cSdlTI994A::Run( )
 				if( joystick != -1 )
 				{
 					pic->SetJoystickButton( joystick, false );
-					if( event.jbutton.button > 0 )
+					if( event.jbutton.button >= 0 )
 					{
 						pic->VKeyUp( 0 );
 					}
