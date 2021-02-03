@@ -333,10 +333,11 @@ void cSdlTI994A::Run( )
 						case 5 :
 							pic->VKeysDown( 0, VK_FCTN,  VK_8 ); // FCTN+REDO - Button (R1)
 							break;
-						/* case 8 :
-							pic->SetJoystickY( joystick, 1 ); // DPAD Up
+						case 8 :
+							vkey = ( VIRTUAL_KEY_E ) ( VK_P ); // Key P - Dpad Up
+							pic->VKeysDown( 0, vkey );
 							break;
-						case 9 :
+						/* case 9 :
 							pic->SetJoystickY( joystick, -1 ); // DPAD Down
 							break;
 						case 10 :
