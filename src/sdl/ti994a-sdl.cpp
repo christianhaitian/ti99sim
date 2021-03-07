@@ -213,11 +213,11 @@ void cSdlTI994A::Run( )
 				{
 					int state = 0;
 					int mag = ( event.jaxis.value < 0 ) ? -event.jaxis.value : event.jaxis.value;
-					if( event.jaxis.value < -8192 )
+					if( event.jaxis.value < -10240 )
 					{
 						state = -1;
 					}
-					if( event.jaxis.value >  8192 )
+					if( event.jaxis.value > 10240 )
 					{
 						state = 1;
 					}
@@ -246,7 +246,7 @@ void cSdlTI994A::Run( )
 			// 13/06/2020 - Added Hat support, in addition to Axis (Alessandro Benedettini).
                         //              Hat is the default setting in some joypads (e.g. Retroflag's GPi Case) and it's better for some games (e.g. Burghertime).
 			//
-			case SDL_JOYHATMOTION :
+			/*case SDL_JOYHATMOTION :
 				joystick = FindJoystick( event.jhat.which );
 				if( joystick != -1 )
 				{
@@ -284,7 +284,7 @@ void cSdlTI994A::Run( )
 
 					}
 				}
-				break;
+				break;*/
 
 
 			//
