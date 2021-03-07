@@ -213,11 +213,11 @@ void cSdlTI994A::Run( )
 				{
 					int state = 0;
 					int mag = ( event.jaxis.value < 0 ) ? -event.jaxis.value : event.jaxis.value;
-					if( event.jaxis.value < -8192 )
+					if( event.jaxis.value < -10240 )
 					{
 						state = -1;
 					}
-					if( event.jaxis.value >  8192 )
+					if( event.jaxis.value >  10240 )
 					{
 						state = 1;
 					}
@@ -335,7 +335,6 @@ void cSdlTI994A::Run( )
 							break;
 						case 8 :
 							pic->SetJoystickY( joystick, 1 ); // Dpad Up
-							pic->VKeysDown( 0, vkey );
 							break;
 						case 9 :
 							pic->SetJoystickY( joystick, -1 ); // DPAD Down
