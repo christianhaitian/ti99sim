@@ -1,4 +1,4 @@
-# Build for rgb10/OGA 1.1 using arm64 Ubuntu environment:
+# Build for Gameforce Chi using arm64 Ubuntu environment:
 
 Prerequisites:
  - Either: g++ v4.8 or newer, or clang++ v3.4 or newer
@@ -8,7 +8,7 @@ Prerequisites:
  - libssl-ocaml-dev
 
 ```bash
-git clone https://github.com/christianhaitian/ti99sim.git
+git clone https://github.com/christianhaitian/ti99sim.git -b chi
 cd ti99sim
 make 
 ```
