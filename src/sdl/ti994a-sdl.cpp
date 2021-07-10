@@ -213,29 +213,29 @@ void cSdlTI994A::Run( )
 				{
 					int state = 0;
 					int mag = ( event.jaxis.value < 0 ) ? -event.jaxis.value : event.jaxis.value;
-					if( event.jaxis.value < -10240 )
+					if( event.jaxis.value < -11100 )
 					{
 						state = -1;
 					}
-					if( event.jaxis.value >  10240 )
+					if( event.jaxis.value > 11100 )
 					{
 						state = 1;
 					}
 					switch( event.jaxis.axis )
 					{
 						case 0 :
-							if(( state == 0 ) || ( 2 * mag > m_JoystickPosY[ joystick ] ))
-							{
-								pic->SetJoystickX( joystick, state );
-							}
-							m_JoystickPosX[ joystick ] = mag;
-							break;
-						case 1 :
 							if(( state == 0 ) || ( 2 * mag > m_JoystickPosX[ joystick ] ))
 							{
 								pic->SetJoystickY( joystick, -state );
 							}
 							m_JoystickPosY[ joystick ] = mag;
+							break;
+						case 1 :
+							if(( state == 0 ) || ( 2 * mag > m_JoystickPosY[ joystick ] ))
+							{
+								pic->SetJoystickX( joystick, state );
+							}
+							m_JoystickPosX[ joystick ] = mag;
 							break;
 					}
 				}
@@ -333,35 +333,35 @@ void cSdlTI994A::Run( )
 						case 5 :
 							pic->VKeysDown( 0, VK_FCTN,  VK_8 ); // FCTN+REDO - Button (R1)
 							break;
-						case 8 :
-							pic->SetJoystickY( joystick, 1 ); // Dpad Up
-							break;
-						case 9 :
-							pic->SetJoystickY( joystick, -1 ); // DPAD Down
-							break;
-						case 10 :
-							pic->SetJoystickX( joystick, -1 ); // DPAD Left
-							break;
-						case 11 :
-							pic->SetJoystickX( joystick, 1 ); // DPAD Right
-							break;
-						case 12 :
-							pic->VKeysDown( 0, VK_FCTN,  VK_9 ); // FCTN+BACK - (Select)
-							break;
-						case 14 :
+						case 6 :
 							vkey = ( VIRTUAL_KEY_E ) ( VK_SPACE ); // Space - (L2)
 							pic->VKeysDown( 0, vkey );
 							break;
-						case 15 :
+						case 7 :
 							vkey = ( VIRTUAL_KEY_E ) ( VK_0 ); // Key 0 - (R2)
 							pic->VKeysDown( 0, vkey );
 							break;
-						case 16 :
-							vkey = ( VIRTUAL_KEY_E ) ( VK_P ); // Key P - (Plus key)
+						case 8 :
+							pic->VKeysDown( 0, VK_FCTN,  VK_9 ); // FCTN+BACK - (Select)
+							break;
+						case 9 :
+							vkey = ( VIRTUAL_KEY_E ) ( VK_ENTER ); // Enter - Button (Start)
 							pic->VKeysDown( 0, vkey );
 							break;
-						case 17 :
-							vkey = ( VIRTUAL_KEY_E ) ( VK_ENTER ); // Enter - Button (Start)
+						case 10 :
+							pic->SetJoystickY( joystick, 1 ); // Dpad Up
+							break;
+						case 11 :
+							pic->SetJoystickY( joystick, -1 ); // DPAD Down
+							break;
+						case 12 :
+							pic->SetJoystickX( joystick, -1 ); // DPAD Left
+							break;
+						case 13 :
+							pic->SetJoystickX( joystick, 1 ); // DPAD Right
+							break;
+						case 15 :
+							vkey = ( VIRTUAL_KEY_E ) ( VK_P ); // Key P - (Plus key)
 							pic->VKeysDown( 0, vkey );
 							break;
 					}
@@ -397,25 +397,25 @@ void cSdlTI994A::Run( )
 							pic->SetJoystickButton( joystick, false );
 						    }
 							break;
-						case 8 : // Dpad Up
+						case 10 : // Dpad Up
 						  if( event.jbutton.state == SDL_RELEASED )
 						    {
 							pic->SetJoystickY( joystick, 0 );
 						    }
 							break;
-						case 9 : // Dpad Down
+						case 11 : // Dpad Down
 						  if( event.jbutton.state == SDL_RELEASED )
 						    {
 							pic->SetJoystickY( joystick, 0 );
 						    }
 							break;
-						case 10 : // Dpad Left
+						case 12 : // Dpad Left
 						  if( event.jbutton.state == SDL_RELEASED )
 						    {
 							pic->SetJoystickX( joystick, 0 );
 						    }
 							break;
-						case 11 : // Dpad Right
+						case 13 : // Dpad Right
 						  if( event.jbutton.state == SDL_RELEASED )
 						    {
 							pic->SetJoystickX( joystick, 0 );
