@@ -22,8 +22,8 @@ L1 = FCTN+QUIT \
 R1 = FCTN+REDO \
 L2 = keyboard key Space \
 R2 = keyboard key 0 \
-L3 = FCTN+BACK \
-R3 = FCTN+QUIT \
+2 = keyboard key P \
+Select = FCTN+BACK \
 Start = keyboard key Enter
 
 See https://www.mrousseau.org/programs/ti99sim/README.html for more info on usage and controls
