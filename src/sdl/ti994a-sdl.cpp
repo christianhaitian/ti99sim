@@ -362,7 +362,7 @@ void cSdlTI994A::Run( )
 							pic->VKeysDown( 0, vkey );
 							break;
 						case 14 :
-							pic->VKeysDown( 0, VK_FCTN,  VK_9 ); // FCTN+BACK - (Select)
+							pic->VKeysDown( 0, VK_FCTN,  VK_9 ); // FCTN+BACK - (L3)
 							break;
 					}
 
