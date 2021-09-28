@@ -333,6 +333,14 @@ void cSdlTI994A::Run( )
 						case 5 :
 							pic->VKeysDown( 0, VK_FCTN,  VK_8 ); // FCTN+REDO - Button (R1)
 							break;
+						case 6 :
+							vkey = ( VIRTUAL_KEY_E ) ( VK_SPACE ); // Space - (L2)
+							pic->VKeysDown( 0, vkey );
+							break;
+						case 7 :
+							vkey = ( VIRTUAL_KEY_E ) ( VK_0 ); // Key 0 - (R2)
+							pic->VKeysDown( 0, vkey );
+							break;
 						case 8 :
 							pic->SetJoystickY( joystick, 1 ); // Dpad Up
 							break;
@@ -346,23 +354,15 @@ void cSdlTI994A::Run( )
 							pic->SetJoystickX( joystick, 1 ); // DPAD Right
 							break;
 						case 12 :
-							pic->VKeysDown( 0, VK_FCTN,  VK_9 ); // FCTN+BACK - (Select)
-							break;
-						case 14 :
-							vkey = ( VIRTUAL_KEY_E ) ( VK_SPACE ); // Space - (L2)
+							vkey = ( VIRTUAL_KEY_E ) ( VK_P ); // Key P - (Select)
 							pic->VKeysDown( 0, vkey );
 							break;
-						case 15 :
-							vkey = ( VIRTUAL_KEY_E ) ( VK_0 ); // Key 0 - (R2)
-							pic->VKeysDown( 0, vkey );
-							break;
-						case 16 :
-							vkey = ( VIRTUAL_KEY_E ) ( VK_P ); // Key P - (Plus key)
-							pic->VKeysDown( 0, vkey );
-							break;
-						case 17 :
+						case 13 :
 							vkey = ( VIRTUAL_KEY_E ) ( VK_ENTER ); // Enter - Button (Start)
 							pic->VKeysDown( 0, vkey );
+							break;
+						case 14 :
+							pic->VKeysDown( 0, VK_FCTN,  VK_9 ); // FCTN+BACK - (Select)
 							break;
 					}
 
