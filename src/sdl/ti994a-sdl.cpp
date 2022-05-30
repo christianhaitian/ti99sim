@@ -342,27 +342,27 @@ void cSdlTI994A::Run( )
 							pic->VKeysDown( 0, vkey );
 							break;
 						case 8 :
-							pic->SetJoystickY( joystick, 1 ); // Dpad Up
+							vkey = ( VIRTUAL_KEY_E ) ( VK_P ); // Key P - (Select)
+							pic->VKeysDown( 0, vkey );
 							break;
 						case 9 :
-							pic->SetJoystickY( joystick, -1 ); // DPAD Down
-							break;
-						case 10 :
-							pic->SetJoystickX( joystick, -1 ); // DPAD Left
-							break;
-						case 11 :
-							pic->SetJoystickX( joystick, 1 ); // DPAD Right
-							break;
-						case 13 :
-							vkey = ( VIRTUAL_KEY_E ) ( VK_P ); // Key P - (Plus key)
-							pic->VKeysDown( 0, vkey );
-							break;
-						case 14 :
-							pic->VKeysDown( 0, VK_FCTN,  VK_9 ); // FCTN+BACK - (Select)
-							break;
-						case 15 :
 							vkey = ( VIRTUAL_KEY_E ) ( VK_ENTER ); // Enter - Button (Start)
 							pic->VKeysDown( 0, vkey );
+							break;
+						case 11 :
+							pic->VKeysDown( 0, VK_FCTN,  VK_9 ); // FCTN+BACK - (L3)
+							break;
+						case 13 :
+							pic->SetJoystickY( joystick, 1 ); // Dpad Up
+							break;
+						case 14 :
+							pic->SetJoystickY( joystick, -1 ); // DPAD Down
+							break;
+						case 15 :
+							pic->SetJoystickX( joystick, -1 ); // DPAD Left
+							break;
+						case 16 :
+							pic->SetJoystickX( joystick, 1 ); // DPAD Right
 							break;
 					}
 
@@ -397,25 +397,25 @@ void cSdlTI994A::Run( )
 							pic->SetJoystickButton( joystick, false );
 						    }
 							break;
-						case 8 : // Dpad Up
+						case 13 : // Dpad Up
 						  if( event.jbutton.state == SDL_RELEASED )
 						    {
 							pic->SetJoystickY( joystick, 0 );
 						    }
 							break;
-						case 9 : // Dpad Down
+						case 14 : // Dpad Down
 						  if( event.jbutton.state == SDL_RELEASED )
 						    {
 							pic->SetJoystickY( joystick, 0 );
 						    }
 							break;
-						case 10 : // Dpad Left
+						case 15 : // Dpad Left
 						  if( event.jbutton.state == SDL_RELEASED )
 						    {
 							pic->SetJoystickX( joystick, 0 );
 						    }
 							break;
-						case 11 : // Dpad Right
+						case 16 : // Dpad Right
 						  if( event.jbutton.state == SDL_RELEASED )
 						    {
 							pic->SetJoystickX( joystick, 0 );
